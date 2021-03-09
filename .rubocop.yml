@@ -1,8 +1,7 @@
 AllCops:
   TargetRubyVersion: 3.0
   NewCops: enable
-  Exclude:
-    - '**/*_test.rb'
+  SuggestExtensions: false
 
 Style/StringLiterals:
   Enabled: true
