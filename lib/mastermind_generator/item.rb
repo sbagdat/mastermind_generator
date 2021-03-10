@@ -8,7 +8,7 @@ module MastermindGenerator
   class Item
     attr_reader :value
 
-    # Item.blue('blue') # => <#... @value='blue'>
+    # Item.new('blue')  # => <#... @value='blue'>
     # Item.new('green') # => <#... @value='green'>
     #
     # Creates a new +Item+ object and return it.
