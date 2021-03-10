@@ -6,10 +6,10 @@ require_relative "mastermind_generator/version"
 module MastermindGenerator
   # Configuration for the gem
   class Configuration
-    attr_accessor :colors, :difficulties
+    attr_accessor :items, :difficulties
 
     def initialize
-      @colors = nil
+      @items = nil
       @difficulties = nil
     end
   end

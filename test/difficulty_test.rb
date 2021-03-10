@@ -8,7 +8,7 @@ class DifficultyTest < Minitest::Test
 
   def setup
     MastermindGenerator.configure do |config|
-      config.colors = %w[red green blue yellow purple orange]
+      config.items = %w[red green blue yellow purple orange]
       config.difficulties = {
         beginner: { item_count: 4, sequence_length: 4 },
         intermediate: { item_count: 5, sequence_length: 6 },
