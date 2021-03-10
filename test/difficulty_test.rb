@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "./test/test_helper"
-require "mastermind_generator/difficulty"
 
 class DifficultyTest < Minitest::Test
   include MastermindGenerator
