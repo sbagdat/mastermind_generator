@@ -27,7 +27,17 @@ module MastermindGenerator
     end
 
     def correct_position_count
-      target.value.chars.zip(sequence.value.chars).count { _1 == _2 }
+      seuence_target_packs.count { _1 == _2 }
+    end
+
+    def correct_position_hints
+      seuence_target_packs.map { _1 == _2 ? _1 : "_" }.join
+    end
+
+    private
+
+    def seuence_target_packs
+      sequence.value.chars.zip(target.value.chars)
     end
   end
 end

@@ -83,4 +83,14 @@ class GuessTest < Minitest::Test
 
     assert_equal 3, guess.correct_position_count
   end
+
+  def test_it_can_print_correct_position_hints
+    sequence = Sequence.new(Difficulty.new(:intermediate), "rggbbg")
+    guess = Guess.new(sequence)
+
+    target = Sequence.new(Difficulty.new(:intermediate), "rrrbgg")
+    guess.assign_target(target)
+
+    assert_equal "r__b_g", guess.correct_position_hints
+  end
 end
