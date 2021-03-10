@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "./test/test_helper"
-require "./lib/color"
+require "mastermind_generator/color"
 
 class ColorTest < MiniTest::Test
+  include MastermindGenerator
+
   def test_it_exists
     color = Color.new("red")
 
