@@ -18,10 +18,6 @@ module MastermindGenerator
       target == sequence
     end
 
-    def fail?
-      target != sequence
-    end
-
     def correct_element_count
       sequence.codes.reduce(0) { |sum, code| sum + [target.value.count(code), sequence.value.count(code)].min }
     end

@@ -53,17 +53,6 @@ class GuessTest < Minitest::Test
     assert guess.succeed?
   end
 
-  def test_it_can_fail
-    sequence = Sequence.new(Difficulty.new(:intermediate), "rrgbbg")
-    guess = Guess.new(sequence)
-
-    target = Sequence.new(Difficulty.new(:intermediate), "rrrbbg")
-    guess.assign_target(target)
-
-    assert_respond_to guess, :succeed?
-    assert guess.fail?
-  end
-
   def test_it_returns_correct_element_count
     sequence = Sequence.new(Difficulty.new(:intermediate), "rrgbbg")
     guess = Guess.new(sequence)
