@@ -36,27 +36,21 @@ class GameTest < MiniTest::Test
 
   def test_it_can_add_player
     game = Game.new(:intermediate)
-    player1 = Player.new("Player One")
-    player2 = Player.new("Player Two")
 
-    game.add_player(player1)
-    game.add_player(player2)
+    game.add_player("Player One")
+    game.add_player("Player Two")
 
-    assert_includes game.players, player1
-    assert_includes game.players, player2
+    assert_includes game.players.map(&:name), "Player One"
+    assert_includes game.players.map(&:name), "Player Two"
   end
 
   def test_it_cannot_add_more_than_two_players
     game = Game.new(:intermediate)
-    player1 = Player.new("Player One")
-    player2 = Player.new("Player Two")
-    player3 = Player.new("Player Three")
+    game.add_player("Player One")
+    game.add_player("Player Two")
+    game.add_player("Player Three")
 
-    game.add_player(player1)
-    game.add_player(player2)
-    game.add_player(player3)
-
-    refute_includes game.players, player3
+    refute_includes game.players.map(&:name), "Player Three"
   end
 
   def test_it_can_check_if_there_is_a_winner
@@ -64,7 +58,7 @@ class GameTest < MiniTest::Test
     player1 = Player.new("Player One")
     game.add_player(player1)
 
-    game.take_a_guess(Guess.new(game.sequence))
+    game.take_a_guess(game.sequence.value)
 
     assert game.finished?
     assert_equal game.player, game.winner
@@ -72,28 +66,25 @@ class GameTest < MiniTest::Test
 
   def test_it_can_playable_as_multiplayer # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     game = Game.new(:intermediate)
-    player1 = Player.new("Aaron")
-    game.add_player(player1)
-
-    player2 = Player.new("Celine")
-    game.add_player(player2)
+    game.add_player("Aaron")
+    game.add_player("Celine")
 
     # Player one's turn
-    game.take_a_guess(Guess.new(Sequence.new(game.difficulty, "rrrrrr")))
+    game.take_a_guess("rrrrrr")
 
     # Player two's turn
     game.next_turn
-    game.take_a_guess(Guess.new(Sequence.new(game.difficulty, "rrrrrr")))
+    game.take_a_guess("rrrrrr")
 
     # Player one's turn
     game.next_turn
-    game.take_a_guess(Guess.new(Sequence.new(game.difficulty, "rrrrrr")))
+    game.take_a_guess("rrrrrr")
 
     # Player two's turn
     game.next_turn
-    game.take_a_guess(Guess.new(game.sequence))
+    game.take_a_guess(game.sequence.value)
 
     assert game.finished?
-    assert_equal player2, game.winner
+    assert_equal game.players.last, game.winner
   end
 end

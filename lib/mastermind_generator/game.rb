@@ -12,7 +12,9 @@ module MastermindGenerator
       @turn_counter = 1
     end
 
-    def take_a_guess(guess)
+    def take_a_guess(value)
+      seq = Sequence.new(difficulty, value)
+      guess = Guess.new(seq)
       player.take_a_guess(guess)
       player.guess.assign_target(sequence)
     end
@@ -23,10 +25,10 @@ module MastermindGenerator
       @turn_counter.odd? ? players.first : players.last
     end
 
-    def add_player(player)
+    def add_player(player_name)
       return if players.length > 1
 
-      players << player
+      players << Player.new(player_name)
     end
 
     def finished?
