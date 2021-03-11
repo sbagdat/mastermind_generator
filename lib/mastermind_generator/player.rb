@@ -3,11 +3,12 @@
 module MastermindGenerator
   # Player
   class Player
-    attr_reader :name, :guesses
+    attr_reader :name, :guesses, :timer
 
     def initialize(name)
       @name = name
       @guesses = []
+      @timer = Timer.new
     end
 
     def take_a_guess(guess)

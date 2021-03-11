@@ -15,6 +15,7 @@ module MastermindGenerator
     def take_a_guess(value)
       seq = Sequence.new(difficulty, value)
       guess = Guess.new(seq)
+      player.timer.start
       player.take_a_guess(guess)
       player.guess.assign_target(sequence)
     end
@@ -32,7 +33,10 @@ module MastermindGenerator
     end
 
     def finished?
-      player.guess.succeed?
+      return false unless player.guess.succeed?
+
+      player.timer.stop
+      true
     end
 
     def winner
@@ -40,6 +44,7 @@ module MastermindGenerator
     end
 
     def next_turn
+      player.timer.pause
       @turn_counter += 1
     end
   end
