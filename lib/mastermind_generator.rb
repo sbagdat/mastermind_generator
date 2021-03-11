@@ -6,6 +6,7 @@ require_relative "mastermind_generator/difficulty"
 require_relative "mastermind_generator/sequence"
 require_relative "mastermind_generator/guess"
 require_relative "mastermind_generator/player"
+require_relative "mastermind_generator/sequence_generator"
 
 # Mastermind game generator
 module MastermindGenerator
