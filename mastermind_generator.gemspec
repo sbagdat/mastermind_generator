@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sıtkı Bağdat"]
   spec.email         = ["sbagdat@gmail.com"]
 
-  spec.summary       = "Mastermind game generator API"
-  spec.description   = "Mastermind game generator API"
+  spec.summary       = "Fully customizable mastermind game generator."
+  spec.description   = "Mastermind* Generator is a fully customizable mastermind (or master mind) game generator. "\
+     "It supports using custom items other than classic color variations. It can also generate multi-player games."
   spec.homepage      = "https://github.com/sbagdat/mastermind_generator"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
