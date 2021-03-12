@@ -2,10 +2,14 @@
 
 module MastermindGenerator
   # Exception for ending timer without starting it before
-  class TimerNotStartedError < StandardError; end
+  class TimerNotStartedError < StandardError
+    def message
+      "Timer is not started! To stop or pause a timer, you need to start it first."
+    end
+  end
 
   # A simple timer
-  # Calculates the time between start and end times
+  # Calculates the time between start and end
   class Timer
     include TimeHelpers
 
@@ -23,11 +27,14 @@ module MastermindGenerator
     alias pause stop
 
     def duration
-      stop_time - start_time
+      pause
+      elapsed_time = stop_time - start_time
+      start
+      elapsed_time
     end
 
     def duration_as_text
-      time_in_writing(stop_time - start_time)
+      time_in_writing(duration)
     end
 
     private
