@@ -29,8 +29,7 @@ module MastermindGenerator
       guess_statistics.merge(
         { count: guesses.count,
           duration: timer_duration,
-          duration_as_text: timer_duration_as_text
-        }
+          duration_as_text: timer_duration_as_text }
       )
     end
 
