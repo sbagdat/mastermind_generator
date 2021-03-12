@@ -30,6 +30,18 @@ module MastermindGenerator
       seuence_target_packs.map { _1 == _2 ? _1 : "_" }.join
     end
 
+    def statistics
+      {
+        value: sequence.value,
+        target: target&.value.to_s,
+        status: succeed? ? "success" : "fail",
+        count: guesses.length,
+        element_count: correct_element_count,
+        position_count: correct_position_count,
+        position_hints: correct_position_hints
+      }
+    end
+
     private
 
     def seuence_target_packs
