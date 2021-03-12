@@ -1,5 +1,10 @@
 # MastermindGenerator
 
+[![Gem Version](https://badge.fury.io/rb/mastermind_generator.svg)](https://badge.fury.io/rb/mastermind_generator)
+[![Build Status](https://travis-ci.com/sbagdat/mastermind_generator.svg?branch=main)](https://travis-ci.com/sbagdat/mastermind_generator)
+[![Code Climate](https://codeclimate.com/github/sbagdat/mastermind_generator/badges/gpa.svg)](https://codeclimate.com/github/sbagdat/mastermind_generator)
+[![Coverage Status](https://coveralls.io/repos/github/sbagdat/mastermind_generator/badge.svg?branch=main)](https://coveralls.io/github/sbagdat/mastermind_generator?branch=main)
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mastermind_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem

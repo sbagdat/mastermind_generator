@@ -5,7 +5,7 @@ require_relative "mastermind/mg_configuration"
 require_relative "mastermind/console_interface"
 
 # Mastermind game
-class Mastermind
+class Mastermind # rubocop:disable Metrics/ClassLength
   include MastermindGenerator
 
   def initialize

@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 gemspec
 
+gem "coveralls", require: false
 gem "minitest", "~> 5.14.3"
 gem "minitest-reporters", ">= 0.5.0"
 gem "rake", "~> 13.0"
