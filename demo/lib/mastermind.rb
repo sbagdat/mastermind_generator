@@ -59,24 +59,27 @@ class Mastermind # rubocop:disable Metrics/ClassLength
       else
         feedback
       end
-      game.next_turn if game.players.length > 1
+      game.next_turn if game.players_count > 1
     end
   end
 
   def feedback
-    stats = player.guess.statistics
-    cli.print_message("'#{stats[:value].upcase}' has #{stats[:element_count]} of the correct elements with "\
-                      " #{stats[:position_count]} in the correct positions.\nYou've taken #{stats[:count]} guess.")
+    stats = game.guess_stats
+    cli.print_message(<<~MSG.chomp)
+      '#{stats[:value].upcase}' has #{stats[:element_count]} of the correct elements with \
+      #{stats[:position_count]} in the correct positions.\nYou've taken #{stats[:count]} guess.
+    MSG
   end
 
   def congrats
-    player = game.player
-    cli.print_message("Congratulations #{player.name}! You guessed the sequence '#{game.sequence.value.upcase}' in "\
-        "#{player.guesses.length} guesses over #{player.timer.duration_as_text}.")
+    cli.print_message(<<~MSG.chomp)
+      Congratulations #{game.player_name}! You guessed the sequence '#{game.sequence_value.upcase}' \
+      in #{game.guesses_count} guesses over #{game.timer_duration_as_text}.
+    MSG
   end
 
   def take_a_guess
-    cli.ask_question("Hey #{game.player.name}! What's your guess?")
+    cli.ask_question("Hey #{game.player_name}! What's your guess?")
     begin
       game.take_a_guess(cli.answer)
     rescue SequenceTooLongError, SequenceTooShortError, SequenceHasInvalidCharsError => e
@@ -139,3 +142,5 @@ class Mastermind # rubocop:disable Metrics/ClassLength
     "(#{value[0]})#{value[1..]}"
   end
 end
+
+Mastermind.new.play

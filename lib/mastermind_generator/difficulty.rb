@@ -2,7 +2,11 @@
 
 module MastermindGenerator
   # Exception for passing invalid difficulty value as an argument to `Difficulty.new`
-  class InvalidDifficultyError < StandardError; end
+  class InvalidDifficultyError < StandardError
+    def message
+      "Invalid Difficulty: It must be one of the difficulty levels which you specified in configuration"
+    end
+  end
 
   # Reprsents difficulty of the game
   # It affects of how many items will be used for secret sequences

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "forwardable"
 require_relative "mastermind_generator/version"
 require_relative "mastermind_generator/configuration"
 require_relative "mastermind_generator/item"
