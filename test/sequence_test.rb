@@ -33,7 +33,7 @@ class SequenceTest < Minitest::Test
 
     assert_raises(SequenceTooShortError) { Sequence.new(diff, "rrgbpo") }
     assert_raises(SequenceTooLongError) { Sequence.new(diff, "rrgbpoppp") }
-    assert_raises(SequenceHasInvalidCharacterError) { Sequence.new(diff, "rrgbpxpp") }
+    assert_raises(SequenceHasInvalidCharsError) { Sequence.new(diff, "rrgbpxpp") }
   end
 
   def test_it_has_items

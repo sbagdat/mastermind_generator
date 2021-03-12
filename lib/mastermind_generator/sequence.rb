@@ -1,11 +1,26 @@
 # frozen_string_literal: true
 
 module MastermindGenerator
-  class SequenceTooShortError < StandardError; end
+  # Raises if sequence lentgh is too short
+  class SequenceTooShortError < StandardError
+    def message
+      "Sequence is too short"
+    end
+  end
 
-  class SequenceTooLongError < StandardError; end
+  # Raises if sequence lentgh is too long
+  class SequenceTooLongError < StandardError
+    def message
+      "Sequence is too long"
+    end
+  end
 
-  class SequenceHasInvalidCharacterError < StandardError; end
+  # Raises if sequence has invalid characters in it
+  class SequenceHasInvalidCharsError < StandardError
+    def message
+      "Sequence has invalid characters in it"
+    end
+  end
 
   # Respresents valid sequence that created according to difficulty level
   class Sequence
@@ -33,7 +48,7 @@ module MastermindGenerator
     def validate(value)
       raise(SequenceTooLongError) if long?(value)
       raise(SequenceTooShortError) if short?(value)
-      raise(SequenceHasInvalidCharacterError) if contains_invalid_chars?(value)
+      raise(SequenceHasInvalidCharsError) if contains_invalid_chars?(value)
 
       value
     end
