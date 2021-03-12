@@ -118,21 +118,21 @@ end
 After you added one or two players to the game by using `add_player` method. You can reach some useful information 
 about player of that turn. Every `MastermindGenerator::Player` instances have these methods:
     
-    * `@game.player.guesses`: All guesses entered by current player. It might be useful to show some historical information.
-    * `@game.player.guess`: Last guess of the user, returns `MastermindGenerator::Guess` instance.
-    * `@game.player.winner?`: Returns `true` if player's latest guess is successful, otherwise returns false.
-    * `@game.player.timer`: Returns a `MastermindGenerator::Timer` object. You can use it to show players how much time they spent to break the code.
+* `@game.player.guesses`: All guesses entered by current player. It might be useful to show some historical information.
+* `@game.player.guess`: Last guess of the user, returns `MastermindGenerator::Guess` instance.
+* `@game.player.winner?`: Returns `true` if player's latest guess is successful, otherwise returns false.
+* `@game.player.timer`: Returns a `MastermindGenerator::Timer` object. You can use it to show players how much time they spent to break the code.
 
 ## Guess Information
 
 You can access guess instances by players. Every `MastermindGenerator::Guess` instances have these methods:
     
-    * `@game.player.guess.succeed?`: Whether the guess was successful or not.
-    * `@game.player.guess.correct_element_count`: How many elements were matched with the target sequence.
-    * `@game.player.guess.correct_position_count`: How many positions were matched with the target sequence.
-    * `@game.player.guess.correct_position_hints`: You can use it to show the correct positions like `R_BG__`
-    * `@game.player.guess.statistics`: Returns a hash that it contains all the information about the guess.
-    
+* `@game.player.guess.succeed?`: Whether the guess was successful or not.
+* `@game.player.guess.correct_element_count`: How many elements were matched with the target sequence.
+* `@game.player.guess.correct_position_count`: How many positions were matched with the target sequence.
+* `@game.player.guess.correct_position_hints`: You can use it to show the correct positions like `R_BG__`
+* `@game.player.guess.statistics`: Returns a hash that it contains all the information about the guess.
+
 ```ruby
 @game.player.guess.statistics
 # # => {
@@ -141,7 +141,7 @@ You can access guess instances by players. Every `MastermindGenerator::Guess` in
 #    status: successful or failed,
 #    count: how many guesses were made,
 #    element_count:  correct element count,
-#   position_count: correct position count,
+#    position_count: correct position count,
 #    position_hints: correct position hints
 # }
 ```
@@ -188,10 +188,11 @@ You can give feedbacks to your player by using the methods we mentioned above. A
 ## Exception Handling
 
 There are four error types defined in the gem with proper `#message` methods.
-  * SequenceTooLongError
-  * SequenceTooShortError
-  * SequenceHasInvalidCharsError
-  * InvalidDifficultyError
+
+* SequenceTooLongError
+* SequenceTooShortError
+* SequenceHasInvalidCharsError
+* InvalidDifficultyError
 
 An example usage might be like this:
 
